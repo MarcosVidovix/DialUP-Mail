@@ -3,8 +3,7 @@ package sample;
 import org.apache.commons.mail.*;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class EnviarEmail {
 
@@ -15,18 +14,17 @@ public class EnviarEmail {
     private String assunto;
     private String destinatario;
     private String msg;
-    private List<String> anexos = new ArrayList<>();
+    private String anexo;
 
-    public EnviarEmail(String rmt, String senha, String dest, String assunto, String msg, ArrayList<String> anexo) {
+    public EnviarEmail(String rmt, String senha, String dest, String assunto, String msg, String anexo) {
 
         this.remetent = rmt;
         this.senha = senha;
         this.destinatario = dest;
         this.assunto = assunto;
         this.msg = msg;
-        for (int i = 0; i < anexo.size(); i++){
-            anexos.add(anexo.get(i));
-        }
+        this.anexo = anexo;
+
     }
 
     void emailSimples() throws EmailException {
@@ -54,17 +52,14 @@ public class EnviarEmail {
         email.setMsg(this.msg);
         email.addTo(this.destinatario);
 
-        for (int i = 0; i < Controller.anexo.size(); i++) {
-            EmailAttachment anexo = new EmailAttachment();
-            File arquivo = new File(Controller.anexo.get(i));
-            anexo.setPath(arquivo.getPath());
-            anexo.setDisposition(EmailAttachment.ATTACHMENT);
-            anexo.setDescription("Arquivo Anexado");
-            anexo.setName("Anexo");
-            email.attach(anexo);
-            email.send();
-        }
-
+        EmailAttachment anexo = new EmailAttachment();
+        File arquivo = new File(this.anexo);
+        anexo.setPath(arquivo.getPath());
+        anexo.setDisposition(EmailAttachment.ATTACHMENT);
+        anexo.setDescription("Arquivo Anexado");
+        anexo.setName("Anexo");
+        email.attach(anexo);
+        email.send();
 
     }
 }

@@ -15,10 +15,8 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
-    private int qtdanexo = 0;
     private int qtddest = 0;
     private List<String> destinatarios = new ArrayList<>();
-    public static List<String> anexo = new ArrayList<>();
 
     @FXML
     private JFXTextField txt_email;
@@ -48,9 +46,6 @@ public class Controller implements Initializable {
     private JFXTextField txt_url;
 
     @FXML
-    private Text txt_anexados;
-
-    @FXML
     private Text txt_qtddestinatarios;
 
     @FXML
@@ -66,15 +61,8 @@ public class Controller implements Initializable {
 
     @FXML
     void anexo(MouseEvent event) {
-        qtdanexo++;
-        anexo.add(txt_url.getText());
-        txt_url.setDisable(true);
-        txt_anexados.setText(String.valueOf(qtdanexo));
-        for (int i = 0; i <= 100000000; i++) {
-        }
-        txt_url.setDisable(false);
-        txt_url.setText(null);
 
+        txt_url.setDisable(true);
     }
 
     @FXML
@@ -86,14 +74,11 @@ public class Controller implements Initializable {
         txt_destinatario.setText(null);
         msg_enviado.setText(null);
         txt_url.setText(null);
-        txt_anexados.setText(null);
         txt_url.setDisable(false);
         txt_email.setDisable(false);
         txt_senha.setDisable(false);
-        qtdanexo = 0;
         qtddest = 0;
         destinatarios.clear();
-        anexo.clear();
         txt_qtddestinatarios.setText(null);
     }
 
@@ -139,7 +124,7 @@ public class Controller implements Initializable {
 
     public void enviarMsg() throws EmailException {
         for (int i = 0; i < destinatarios.size(); i++) {
-            EnviarEmail enviar = new EnviarEmail(txt_email.getText(), txt_senha.getText(), destinatarios.get(i), txt_assunto.getText(), txt_msg.getText(), (ArrayList<String>) anexo);
+            EnviarEmail enviar = new EnviarEmail(txt_email.getText(), txt_senha.getText(), destinatarios.get(i), txt_assunto.getText(), txt_msg.getText(), txt_url.getText());
             if (txt_url.isDisable()) {
                 enviar.emailAnexo();
             } else {
