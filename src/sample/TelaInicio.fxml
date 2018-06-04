@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="480.0" style="-fx-background-color: FFFFE0;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <JFXTextField fx:id="txt_email" focusColor="#9d0000" labelFloat="true" layoutX="72.0" layoutY="125.0" prefHeight="25.0" prefWidth="245.0" promptText="E-Mail" unFocusColor="#ff0008" />
+        <JFXPasswordField fx:id="txt_senha" focusColor="#9d0000" labelFloat="true" layoutX="72.0" layoutY="162.0" prefHeight="25.0" prefWidth="245.0" promptText="Senha" unFocusColor="#ff0008">
+            <font>
+                <Font name="Times New Roman" size="12.0" />
+            </font>
+        </JFXPasswordField>
+        <JFXTextField fx:id="txt_destinatario" focusColor="#9d0000" labelFloat="true" layoutX="72.0" layoutY="201.0" prefHeight="25.0" prefWidth="245.0" promptText="Destinatário" unFocusColor="#ff0008" />
+        <JFXTextField fx:id="txt_assunto" focusColor="#9d0000" layoutX="23.0" layoutY="279.0" prefHeight="22.0" prefWidth="161.0" promptText="Assunto" unFocusColor="#ff0008">
+            <font>
+                <Font name="Times New Roman" size="12.0" />
+            </font></JFXTextField>
+      <JFXTextField fx:id="txt_url" focusColor="#9d0000" labelFloat="true" layoutX="223.0" layoutY="280.0" prefHeight="22.0" prefWidth="161.0" promptText="Diretorio" unFocusColor="#ff0008">
+         <font>
+            <Font name="Times New Roman" size="12.0" />
+         </font>
+      </JFXTextField>
+        <ImageView fitHeight="105.0" fitWidth="97.0" layoutX="363.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/img-email.png" />
+            </image>
+        </ImageView>
+        <JFXTextArea fx:id="txt_msg" focusColor="#9d0000" layoutX="8.0" layoutY="312.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #ff0008; -fx-border-style: solid; -fx-border-radius: 5px;" unFocusColor="#ff0008" />
+        <JFXButton fx:id="btn_anexo" buttonType="RAISED" layoutX="381.0" layoutY="278.0" onMouseClicked="#anexo" prefHeight="27.0" prefWidth="62.0" ripplerFill="#9d0000" style="-fx-border-color: #ff0008; -fx-border-style: solid; -fx-border-radius: 3px; -fx-background-color: #CDCDB4;" text="Anexar" textAlignment="CENTER" />
+        <JFXButton fx:id="btn_enviar" buttonType="RAISED" layoutX="335.0" layoutY="510.0" onMouseClicked="#enviar" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: #CDCDB4; -fx-border-style: solid; -fx-border-radius: 3px; -fx-border-color: #ff0008;" text="Enviar" textAlignment="CENTER">
+            <font>
+                <Font name="Times New Roman" size="12.0" />
+            </font>
+        </JFXButton>
+        <Text fill="#9d0000" fontSmoothingType="LCD" layoutX="143.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DialUP E-Mail" textAlignment="CENTER">
+            <font>
+                <Font name="Verdana Bold" size="25.0" />
+            </font>
+        </Text>
+      <JFXButton fx:id="btn_cancela" buttonType="RAISED" layoutX="72.0" layoutY="510.0" onMouseClicked="#cancela" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: #CDCDB4; -fx-border-style: solid; -fx-border-radius: 3px; -fx-border-color: #ff0008;" text="Cancela" textAlignment="CENTER">
+         <font>
+            <Font name="Times New Roman" size="12.0" />
+         </font>
+      </JFXButton>
+      <Text fx:id="msg_enviado" layoutX="202.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="76.99999809265137">
+         <font>
+            <Font name="Times New Roman Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="txt_anexados" layoutX="443.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="25.0">
+         <font>
+            <Font name="Times New Roman" size="12.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="btn_incluir" buttonType="RAISED" layoutX="317.0" layoutY="200.0" onMouseClicked="#incluir" prefHeight="27.0" prefWidth="62.0" ripplerFill="#9d0000" style="-fx-border-color: #ff0008; -fx-border-style: solid; -fx-border-radius: 3px; -fx-background-color: #CDCDB4;" text="Incluir" textAlignment="CENTER" />
+      <Text fx:id="txt_qtddestinatarios" layoutX="381.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="25.0">
+         <font>
+            <Font name="Times New Roman" size="12.0" />
+         </font>
+      </Text>
+    </children>
+</AnchorPane>
